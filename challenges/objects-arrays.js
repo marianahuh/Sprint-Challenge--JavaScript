@@ -134,7 +134,6 @@ zooAnimals.forEach(function (aniName) {
 });
 
 
-
 /* Request 2: .map()
 
 The zoos need a list of all their animal's names (names only, not scientific) converted to lower case.  Create a new array named lowerCase and map over each name to convert them all to lower case.  Log the resut.
@@ -151,12 +150,12 @@ console.log(lowerCase);
 The zoos are concenred about animals with a lower population count. Find out which animals have a population less than 5.
 
 */
-const largerPopulation = zooAnimals.filter(function (pop) {
-  return pop.population < 5;
+const largerPopulation = zooAnimals.filter(function (popCount) {
+  return popCount.population < 5;
 });
 console.log(largerPopulation);
 
-/* Request 4: .reduce() 
+/* Request 4: .reduce()
 
 The zoos need to know their total animal population across the United States.  Find the total population from all the zoos using the .reduce() method.
 
@@ -172,4 +171,26 @@ console.log(populationTotal);
 Stretch: If you haven't already, convert your array method callbacks into arrow functions.
 
 */
+// forEach Arrow Function
+zooAnimals.forEach((aniName) => {
+  const animalNames = [];
+  animalNames.push("Name: " + aniName.animal_name + ", " + "Scientific: " + aniName.scientific_name);
+  console.log(animalNames);
+})
 
+// .map Arrow Function
+const lowerCase2 = zooAnimals.map(aniName => aniName.animal_name.toLowerCase());
+console.log(lowerCase2);
+
+// .filter Arrow Function
+const largerPopulation2 = zooAnimals.filter((pop) => {
+  return pop.population < 5;
+});
+console.log(largerPopulation2);
+
+
+// .reduce Arrow Function
+const populationTotal2 = zooAnimals.reduce((pop, num) => {
+  return pop += num.population;
+}, 0);
+console.log(populationTotal2);
